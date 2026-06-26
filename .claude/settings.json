@@ -1,0 +1,14 @@
+{
+  "extraKnownMarketplaces": {
+    "bubu-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "seabub/bubu-marketplace",
+        "ref": "main"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "bubu-toolkit@bubu-marketplace": true
+  }
+}
