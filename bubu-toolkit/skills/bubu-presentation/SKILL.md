@@ -52,9 +52,25 @@ sibling `logo/` and `fonts/` folders — the logo paths resolve relative to the 
    milestones) read the workspace `_Context/AboutBUBU.md`.
 2. **Outline the narrative, then map layouts to it.** Vary layouts to fit each beat —
    never repeat one back-to-back. 21 layouts are in `references/layouts.md`.
-3. **Build** with the theme, then **embed fonts** (next section).
-4. **QA** with the pptx skill (render + subagent). Fix real defects, then stop.
-5. **Save** the `.pptx` to the workspace `Presentations/` folder unless told otherwise.
+3. **Ask about output before building anything.** After outlining the narrative (steps 1–2),
+   STOP and use AskUserQuestion to ask the user what they want. Do NOT build the .pptx
+   until the user confirms. Use this exact question structure:
+
+   - Question: "Outline deck sudah siap. Mau langsung dibuatkan file .pptx-nya?"
+   - Options:
+     - "Ya, build .pptx sekarang" — proceed to build the full branded deck
+     - "Tampilkan outline dulu" — show the slide-by-slide outline in chat first, no file
+     - "Mau review outline dulu baru build" — show outline and wait for approval before building
+     - (always include the "Other" free-text option automatically provided by the system)
+
+   Only proceed to steps 4–6 if the user selects a build option.
+   If the user selects "Tampilkan outline dulu" or "Mau review outline dulu baru build",
+   present the full slide outline as structured Markdown (slide number, layout name, headline,
+   key content per slide), then wait for the user's go-ahead before building.
+
+4. **Build** with the theme, then **embed fonts** (next section).
+5. **QA** with the pptx skill (render + subagent). Fix real defects, then stop.
+6. **Save** the `.pptx` to the workspace `Presentations/` folder unless told otherwise.
 
 ## Building a deck
 Copy the whole `assets/` directory next to your build script so `logo/` and `fonts/`

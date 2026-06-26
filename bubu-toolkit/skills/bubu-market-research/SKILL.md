@@ -102,12 +102,19 @@ Only produce the pyramid if the user says yes.
 
 Deliver in chat by default, structured along the steps (deconstruction → timeline & deep findings → competitor comparison → public reception → micro-signals → fit). Lead with the single sharpest, least-obvious insight. Keep citations inline and auditable, with a short "Sources" list when you've leaned on web research.
 
-Close with **two distinct lines, in this order** — and don't let the first swallow the second:
+**At the end of the research delivery**, use AskUserQuestion to present these two offers together as separate questions:
 
-1. The McKinsey gate question (Step 6).
-2. A one-line **offer to save** a polished research report (`.md` or `.docx`) into the workspace's `Research/` folder.
+- **Question 1 — McKinsey gate (Step 6):**
+  - "Mau dimapping ke McKinsey Growth Pyramid?"
+  - Options: "Ya, mapping sekarang" / "Tidak perlu"
+  - (plus the "Other" free-text option)
 
-Keep them as two separate offers so the user can take either, both, or neither. Don't save unprompted; many sessions are exploratory.
+- **Question 2 — Output file:**
+  - "Mau disimpan sebagai file research?"
+  - Options: "Ya, simpan sebagai .md" / "Ya, simpan sebagai .docx" / "Tidak perlu"
+  - (plus the "Other" free-text option)
+
+Do NOT save any file unprompted — many sessions are exploratory. Only generate and save a file if the user explicitly selects a save option.
 
 ## Tone & standards
 

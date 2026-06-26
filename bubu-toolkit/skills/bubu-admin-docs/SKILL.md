@@ -58,14 +58,29 @@ paperwork, build it here rather than as a plain document, so the house style hol
    exact role title from `references/AboutBUBU.md` (company profile + org structure).
    Don't guess.
 
-6. **Run the generator:**
+6. **Ask about output before generating anything.** After drafting the document content
+   (steps 1–5 in your head/chat), STOP and use AskUserQuestion to ask the user what
+   they want. Do NOT write the JSON or run the generator until the user confirms.
+   Use this exact question structure:
+
+   - Question: "Dokumen sudah siap. Mau dibuatkan file output-nya?"
+   - Options:
+     - "Ya, simpan sebagai .docx" — generate the branded Word file
+     - "Tampilkan di chat dulu" — show the document content as formatted text in chat, no file
+     - (always include the "Other" free-text option automatically provided by the system)
+
+   Only proceed to steps 7–8 if the user selects the file output option.
+   If the user selects "Tampilkan di chat dulu", present the full document as structured
+   Markdown in the chat, then offer at the end if they want to save it as a .docx.
+
+7. **Run the generator:**
    ```bash
    python3 scripts/generate_doc.py doc_data.json --root "/path/to/BUBU"
    ```
    With `--root`, it auto-files to **`BUBU/Administration/<DocType>/<Title> - <date>.docx`**.
    Or pass an explicit path: `python3 scripts/generate_doc.py doc_data.json "/some/path/My Letter"`.
 
-7. **Verify, then deliver.** Render page 1 to an image to check the brand band, logo,
+8. **Verify, then deliver.** Render page 1 to an image to check the brand band, logo,
    tables, and spacing, then present the `.docx` to the user.
 
 ## House style (handled by the script — don't re-implement)

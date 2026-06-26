@@ -62,10 +62,25 @@ content as a JSON file; the script renders the branded `.docx` and `.pdf`.
    name is in AboutBUBU.md. (e.g. Pungkas Riandika → Cultural Intelligence Officer; Fauzan
    Hammy → Lead Business & Innovation.) Only use `TBC` for people genuinely not listed.
 
-6. **Write the JSON data file** following `references/data_schema.md`. Save it next to
+6. **Ask about output before generating anything.** After understanding the content (steps 1–5),
+   STOP and use AskUserQuestion to ask the user what output they want. Do NOT write the JSON
+   or run the generator until the user confirms. Use this exact question structure:
+
+   - Question: "MOM-nya sudah siap disusun. Mau dibuatkan file output-nya?"
+   - Options:
+     - "Ya, .docx + .pdf" — generate both formats
+     - "Ya, .docx aja" — generate Word only
+     - "Tampilkan di chat dulu" — show the MOM content as formatted text in chat, no file
+     - (always include the "Other" free-text option automatically provided by the system)
+
+   Only proceed to steps 7–9 if the user selects a file output option.
+   If the user selects "Tampilkan di chat dulu", present the full MOM as structured Markdown
+   in the chat, then offer again at the end if they want to save it as a file.
+
+7. **Write the JSON data file** following `references/data_schema.md`. Save it next to
    where you'll output (e.g. `mom_data.json`).
 
-7. **Run the generator.** Pass `--root` pointing at the user's BUBU project folder so
+8. **Run the generator.** Pass `--root` pointing at the user's BUBU project folder so
    the files are auto-filed in the standard place:
    ```bash
    python3 scripts/generate_mom.py mom_data.json --root "/path/to/BUBU"
@@ -83,7 +98,7 @@ content as a JSON file; the script renders the branded `.docx` and `.pdf`.
      correctly on any computer, and runs PDF conversion in a temp dir so no stray
      LibreOffice lock/temp files are left in the user's folder.
 
-8. **Verify before delivering.** Convert page 1 of the PDF to an image and look at it
+9. **Verify before delivering.** Convert page 1 of the PDF to an image and look at it
    (`pdftoppm -png -r 110 -f 1 -l 1 OUTPUT.pdf check`) to confirm the brand band, logo
    and tables render correctly. Then present both the `.docx` and `.pdf` to the user.
 

@@ -73,17 +73,28 @@ Notes:
 - If a specific PDF/scan converts poorly, retry with `--use-plugins` (e.g.
   the OCR plugin) or mention Azure Document Intelligence as an option.
 
-### 4. Deliver
+### 4. Decide whether to surface the output
 
-Copy the `.md` into the user's connected folder so it persists, then present it:
+The conversion to Markdown always happens internally so the content can be read.
+Whether to surface the `.md` file as a deliverable depends on context:
 
-```bash
-cp "/sessions/<session-id>/mnt/outputs/report.md" "/sessions/<session-id>/mnt/<connected-folder>/report.md"
-```
+- **If the user's request is downstream** (e.g. "summarize this PDF", "turn this into a MOM",
+  "analyze this document") — read the generated Markdown and continue the task. **Do NOT
+  save or present the `.md` as a separate file** unless asked.
 
-Then call `present_files` on the saved `.md`. If the user only wanted the
-content used inline (e.g. "summarize this PDF"), read the generated Markdown and
-continue the task — you don't always need to surface the `.md` as a deliverable.
+- **If the user explicitly asked to convert the file** (e.g. "convert this to markdown",
+  "markitdown this", "save as .md") — use AskUserQuestion to confirm what they want:
+
+  - Question: "File berhasil dikonversi. Mau disimpan sebagai file .md?"
+  - Options:
+    - "Ya, simpan di folder project" — copy to connected folder and present
+    - "Tampilkan isinya di chat" — show the Markdown content inline, no file saved
+    - (plus the "Other" free-text option)
+
+  Only copy and present the file if the user selects the save option:
+  ```bash
+  cp "/sessions/<session-id>/mnt/outputs/report.md" "/sessions/<session-id>/mnt/<connected-folder>/report.md"
+  ```
 
 ## Batch conversions
 
