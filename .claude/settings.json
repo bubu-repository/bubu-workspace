@@ -3,7 +3,7 @@
     "bubu-marketplace": {
       "source": {
         "source": "github",
-        "repo": "seabub/bubu-marketplace",
+        "repo": "seabub/bubu-workspace",
         "ref": "main"
       }
     }

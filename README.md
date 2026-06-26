@@ -35,7 +35,7 @@ You need two things installed:
 Open your terminal and run:
 
 ```bash
-git clone --recurse-submodules https://github.com/seabub/bubu-marketplace.git BUBU
+git clone --recurse-submodules https://github.com/seabub/bubu-workspace.git BUBU
 cd BUBU
 ```
 
