@@ -1,0 +1,155 @@
+{
+  "document_title": "Minutes of Meeting",
+  "meeting_title": "Brand Strategy & Campaign Kickoff",
+  "meeting_type": "External",
+  "client": "Todak Product Center (TPC)",
+  "project": "TPC Rebrand & Q3 Launch Campaign",
+  "date": "18 June 2026",
+  "date_iso": "2026-06-18",
+  "time": "14:00 – 15:30 (GMT+8)",
+  "location": "BUBU HQ, Studio 2 / Google Meet",
+  "reference": "BUBU-MOM-2026-0184",
+  "facilitator": "Aiman Rahmat (Strategy Director, BUBU)",
+  "minute_taker": "Nadia Lim (Project Officer, BUBU)",
+  "prepared_by": "Nadia Lim",
+  "confidentiality": "Confidential",
+  "executive_summary": "BUBU and TPC aligned on the strategic direction for the rebrand and the Q3 launch campaign. The parties agreed on a culturally-led positioning built around \"modern heritage,\" confirmed the three-phase rollout, and locked the creative review milestones. Budget envelope and brand architecture were approved in principle, pending TPC board sign-off on the master logo direction by 27 June. Two dependencies (asset handover and legal clearance on the geographical indication mark) were flagged as the critical path for hitting the launch date.",
+  "agenda": [
+    "Review of brand audit findings and competitive landscape",
+    "Proposed positioning and brand architecture",
+    "Q3 launch campaign concept and channel plan",
+    "Timeline, milestones and budget envelope",
+    "Risks, dependencies and next steps"
+  ],
+  "key_points": [
+    {
+      "title": "Positioning approved in principle",
+      "detail": "TPC endorsed the \"modern heritage\" territory as the lead direction over the two alternatives presented."
+    },
+    {
+      "title": "Three-phase rollout confirmed",
+      "detail": "Tease (Jul), Reveal (Aug), Amplify (Sep) — with the master brand reveal anchored to the 15 August trade show."
+    },
+    {
+      "title": "Budget envelope agreed",
+      "detail": "RM 1.2M total approved in principle; final allocation across production and media to be confirmed after the channel plan is costed."
+    },
+    {
+      "title": "Decision pending",
+      "detail": "Final selection between Logo Route A and Route B deferred to the TPC board on 27 June."
+    }
+  ],
+  "discussion": [
+    {
+      "topic": "Brand audit & competitive landscape",
+      "notes": "BUBU presented the audit covering perception gaps, category conventions and three competitor teardowns. TPC confirmed the finding that the current identity reads as dated to the under-35 segment, which is the primary growth audience. Agreement that differentiation should lean on provenance and craft rather than price."
+    },
+    {
+      "topic": "Positioning & brand architecture",
+      "notes": "Two territories were debated. \"Modern heritage\" was preferred for its room to grow into adjacent product lines. A masterbrand architecture (single brand, endorsed sub-ranges) was agreed over a house-of-brands model to keep marketing spend efficient."
+    },
+    {
+      "topic": "Campaign concept & channels",
+      "notes": [
+        "Lead concept \"Made to Last, Made for Now\" received strong support.",
+        "Channel priority: trade show activation, short-form social (TikTok/IG Reels), and selective OOH in two key cities.",
+        "TPC requested a creator/KOL layer be added to the channel plan for the Reveal phase."
+      ]
+    },
+    {
+      "topic": "Timeline & budget",
+      "notes": "Milestones mapped against the 15 August trade show as the fixed anchor. BUBU flagged that the production schedule has zero slack if asset handover slips beyond 30 June."
+    }
+  ],
+  "action_items": [
+    {
+      "action": "Circulate refined positioning deck with the two logo routes for board review",
+      "owner": "Aiman (BUBU)",
+      "due": "23 Jun 2026",
+      "status": "Open"
+    },
+    {
+      "action": "Provide brand asset library and prior campaign files for handover",
+      "owner": "Faridah (TPC)",
+      "due": "30 Jun 2026",
+      "status": "Open"
+    },
+    {
+      "action": "Cost the channel plan including the new KOL layer",
+      "owner": "Nadia (BUBU)",
+      "due": "26 Jun 2026",
+      "status": "Open"
+    },
+    {
+      "action": "Secure TPC board decision on master logo direction",
+      "owner": "Faridah (TPC)",
+      "due": "27 Jun 2026",
+      "status": "Open"
+    },
+    {
+      "action": "Confirm legal clearance on the geographical indication mark",
+      "owner": "Legal (TPC)",
+      "due": "03 Jul 2026",
+      "status": "In Progress"
+    }
+  ],
+  "risks": [
+    {
+      "risk": "Asset handover slips past 30 June",
+      "impact": "High",
+      "workaround": "BUBU to begin production with placeholder assets and a locked template system so only final imagery needs swapping; handover deadline added as a hard milestone.",
+      "owner": "Nadia (BUBU)"
+    },
+    {
+      "risk": "Logo direction not approved by board on 27 June",
+      "impact": "High",
+      "workaround": "Prepare both routes to production-ready state so either can proceed; reserve a 48-hour escalation window with TPC sponsor.",
+      "owner": "Aiman (BUBU)"
+    },
+    {
+      "risk": "Geographical indication mark legal clearance delayed",
+      "impact": "Medium",
+      "workaround": "Develop campaign creative that does not depend on the GI mark for Phase 1; introduce the mark in the Amplify phase once cleared.",
+      "owner": "Legal (TPC)"
+    },
+    {
+      "risk": "KOL availability for August window",
+      "impact": "Medium",
+      "workaround": "Shortlist 2x the required talent and issue holding briefs early; lock contracts by mid-July.",
+      "owner": "Nadia (BUBU)"
+    }
+  ],
+  "next_steps": [
+    "BUBU to reconvene with TPC on 30 June to confirm board decision and asset handover status.",
+    "Production pre-flight to begin 1 July, contingent on logo sign-off.",
+    "Next formal review scheduled for 14 July 2026."
+  ],
+  "participants": [
+    {
+      "name": "Aiman Rahmat",
+      "role": "Strategy Director",
+      "organization": "BUBU"
+    },
+    {
+      "name": "Nadia Lim",
+      "role": "Project Officer",
+      "organization": "BUBU"
+    },
+    {
+      "name": "Hafiz Idris",
+      "role": "Creative Lead",
+      "organization": "BUBU"
+    },
+    {
+      "name": "Faridah Osman",
+      "role": "Head of Marketing",
+      "organization": "Todak Product Center"
+    },
+    {
+      "name": "Daniel Teh",
+      "role": "Commercial Manager",
+      "organization": "Todak Product Center"
+    }
+  ],
+  "language": "en"
+}

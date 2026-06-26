@@ -1,0 +1,24 @@
+# macOS
+.DS_Store
+**/.DS_Store
+._*
+
+# Environment
+.env
+.env.*
+*.env
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+
+# LibreOffice / Office temp files
+.~lock.*
+*.tmp
+
+# Temp / generated output
+/tmp/

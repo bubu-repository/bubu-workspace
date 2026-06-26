@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx skills *)",
+      "Bash(cat ~/.zshrc 2>/dev/null || echo \"FILE_NOT_FOUND\")"
+    ]
+  }
+}

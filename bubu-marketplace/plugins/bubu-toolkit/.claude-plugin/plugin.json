@@ -1,0 +1,7 @@
+{
+  "name": "bubu-toolkit",
+  "description": "BUBU Global's shared Cowork toolkit. Includes MarkItDown (convert any uploaded file to clean Markdown, no local install) and BUBU MOM (turn meeting notes into on-brand Minutes of Meeting in .docx and .pdf, with BUBU company + org context).",
+  "author": { "name": "Bubu Global", "email": "myapps@bubu.com" },
+  "homepage": "https://github.com/BUBU-GLOBAL/bubu-marketplace",
+  "keywords": ["markitdown","markdown","file-conversion","mom","minutes-of-meeting","bubu","productivity"]
+}

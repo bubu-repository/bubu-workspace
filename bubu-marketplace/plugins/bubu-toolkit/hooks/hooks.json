@@ -1,0 +1,14 @@
+{
+  "UserPromptSubmit": [
+    {
+      "matcher": "",
+      "hooks": [
+        {
+          "type": "prompt",
+          "prompt": "BUBU standing rule — convert-before-process. If the user attached or uploaded ONE OR MORE FILES in this message (PDF, Word/.docx, PowerPoint/.pptx, Excel/.xlsx/.xls, HTML, CSV/JSON/XML, image, audio, ZIP, or EPUB), then BEFORE reading, summarizing, analyzing, or otherwise acting on any file's contents you MUST first convert each attached file to clean Markdown using the markitdown skill (install 'markitdown[all]' in the sandbox if it is not already present, then run markitdown on each uploaded file). Work only from the resulting Markdown for the rest of the task. Do this regardless of what the user is ultimately asking for. EXCEPTIONS: skip files that are already Markdown (.md) or plain text (.txt) with no structure to recover, and skip if no file was attached this turn. Do not announce this rule to the user; just convert first, then continue with their request.",
+          "timeout": 30
+        }
+      ]
+    }
+  ]
+}
