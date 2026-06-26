@@ -1,0 +1,31 @@
+{
+  "doc_type": "Surat Resmi",
+  "subtitle": "Surat Pemberitahuan Jadwal Workshop",
+  "language": "id",
+  "confidentiality": "Internal",
+  "date_iso": "2026-06-26",
+  "prepared_by": "Pungkas Riandika",
+  "meta": [
+    {"label": "Nomor", "value": "001/BUBU/VI/2026"},
+    {"label": "Tanggal", "value": "26 Juni 2026"},
+    {"label": "Perihal", "value": "Pemberitahuan Jadwal Workshop"},
+    {"label": "Lampiran", "value": "-"},
+    {"label": "Kepada", "value": "Seluruh Tim BUBU"},
+    {"label": "Dari", "value": "Cultural Intelligence Officer"}
+  ],
+  "body": [
+    {"type": "paragraph", "text": "Dengan hormat,\nBersama surat ini kami memberitahukan bahwa BUBU akan mengadakan rangkaian workshop internal untuk menyelaraskan rencana kerja kuartal berikutnya. Kehadiran seluruh tim sangat kami harapkan."},
+    {"type": "heading", "text": "Detail Pelaksanaan"},
+    {"type": "bullets", "items": [
+      "Hari/Tanggal: Senin, 6 Juli 2026",
+      "Waktu: 09.00 - 12.00 WIB",
+      "Tempat: BUBU HQ, Studio 2",
+      "Agenda: Penyelarasan rencana kerja dan target kuartal"
+    ]},
+    {"type": "highlight", "text": "Mohon konfirmasi kehadiran paling lambat 3 Juli 2026 kepada GA Manager."},
+    {"type": "paragraph", "text": "Demikian pemberitahuan ini kami sampaikan. Atas perhatian dan kerja samanya, kami ucapkan terima kasih."},
+    {"type": "signatures", "label": "Hormat kami", "approvers": [
+      {"name": "Pungkas Riandika", "role": "Cultural Intelligence Officer", "organization": "BUBU"}
+    ]}
+  ]
+}

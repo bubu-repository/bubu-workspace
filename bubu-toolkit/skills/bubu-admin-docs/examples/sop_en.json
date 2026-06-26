@@ -1,0 +1,35 @@
+{
+  "doc_type": "SOP",
+  "subtitle": "Client Onboarding Procedure",
+  "language": "en",
+  "confidentiality": "Internal",
+  "date_iso": "2026-06-26",
+  "meta": [
+    {"label": "Document No.", "value": "SOP/BUBU/OPS/004"},
+    {"label": "Version", "value": "1.0"},
+    {"label": "Effective Date", "value": "26 June 2026"},
+    {"label": "Owner", "value": "Lead Business & Innovation"}
+  ],
+  "body": [
+    {"type": "paragraph", "text": "This procedure defines how BUBU onboards a new client, from signed agreement to project kickoff, so every engagement starts the same clean way."},
+    {"type": "heading", "text": "Scope"},
+    {"type": "paragraph", "text": "Applies to all new client engagements handled by the Account and Strategy teams."},
+    {"type": "heading", "text": "Procedure"},
+    {"type": "numbered", "items": [
+      "Account Manager confirms the signed agreement and files it in the client folder.",
+      "Strategy assigns a project lead and creates the project workspace.",
+      "Project lead schedules the kickoff meeting within five working days.",
+      "Run the kickoff, capture decisions, and circulate the Minutes of Meeting.",
+      "Set up the recurring work-in-progress (WIP) cadence with the client."
+    ]},
+    {"type": "highlight", "text": "No production work starts before the signed agreement is filed and the kickoff MOM is circulated."},
+    {"type": "heading", "text": "Roles & Responsibilities"},
+    {"type": "table",
+     "columns": ["Step", "Responsible", "Output"],
+     "rows": [
+       ["Agreement filing", "Account Manager", "Signed agreement on file"],
+       ["Project setup", "Strategy", "Workspace + assigned lead"],
+       ["Kickoff", "Project Lead", "Kickoff MOM"]
+     ]}
+  ]
+}

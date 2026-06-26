@@ -16,10 +16,10 @@ npm-debug.log*
 .vscode/
 .idea/
 
-# Large brand/presentation files — store in Google Drive
-MOM/_Context/BUBU Brand Guidelines.pptx
-MOM/_Context/BUBU Company Profile 2026_Final Touch.pptx
-Marketing/_Context/BUBU Company Profile 2026.pdf
+# Large brand/presentation files — store in Google Drive, restore to BUBU_Assets/Context/
+BUBU_Assets/Context/BUBU_BrandGuidelines_2026.pptx
+BUBU_Assets/Context/BUBU_CompanyProfile_2026.pptx
+BUBU_Assets/Context/BUBU_CompanyProfile_2026.pdf
 
 # LibreOffice / Office temp files
 .~lock.*

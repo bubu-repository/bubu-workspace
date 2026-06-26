@@ -1,0 +1,39 @@
+{
+  "doc_type": "Invoice",
+  "subtitle": "INV/BUBU/2026/0042",
+  "language": "id",
+  "confidentiality": "Confidential",
+  "date_iso": "2026-06-26",
+  "meta": [
+    {"label": "Nomor Invoice", "value": "INV/BUBU/2026/0042"},
+    {"label": "Tanggal", "value": "26 Juni 2026"},
+    {"label": "Jatuh Tempo", "value": "10 Juli 2026"},
+    {"label": "Kepada", "value": "Todak Product Center (TPC)"},
+    {"label": "Dari", "value": "BUBU Global"},
+    {"label": "Status", "value": "Belum Dibayar"}
+  ],
+  "body": [
+    {"type": "paragraph", "text": "Berikut rincian tagihan untuk jasa yang telah disepakati. Pembayaran dapat dilakukan melalui transfer ke rekening yang tercantum di bawah."},
+    {"type": "heading", "text": "Rincian Tagihan"},
+    {"type": "table",
+     "columns": ["No", "Deskripsi", "Qty", "Harga Satuan", "Jumlah"],
+     "align_right": [2, 3, 4],
+     "rows": [
+       ["1", "Brand strategy & positioning", "1", "Rp 120.000.000", "Rp 120.000.000"],
+       ["2", "Produksi konten kampanye (paket)", "1", "Rp 85.000.000", "Rp 85.000.000"],
+       ["3", "Pengembangan microsite", "1", "Rp 60.000.000", "Rp 60.000.000"]
+     ],
+     "totals": [
+       ["Subtotal", "Rp 265.000.000"],
+       ["PPN 11%", "Rp 29.150.000"],
+       ["Total", "Rp 294.150.000"]
+     ]},
+    {"type": "heading", "text": "Pembayaran"},
+    {"type": "bullets", "items": [
+      "Bank: BCA",
+      "No. Rekening: 1234567890 a.n. PT BUBU Kreasi Indonesia",
+      "Mohon cantumkan nomor invoice pada keterangan transfer."
+    ]},
+    {"type": "highlight", "text": "Pembayaran jatuh tempo pada 10 Juli 2026. Konfirmasi bukti transfer ke finance@bubu.com."}
+  ]
+}

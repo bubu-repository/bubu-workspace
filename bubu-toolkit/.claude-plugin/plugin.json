@@ -1,0 +1,7 @@
+{
+  "name": "bubu-toolkit",
+  "description": "BUBU Global's all-in-one Cowork toolkit. Skills: MarkItDown (convert any uploaded file to Markdown), BUBU MOM (on-brand Minutes of Meeting in .docx + .pdf), BUBU Admin Docs (branded invoices, letters, SOPs), BUBU Presentation (on-brand decks via Canva MCP), and BUBU Market Research (research planning & synthesis).",
+  "author": { "name": "Bubu Global", "email": "myapps@bubu.com" },
+  "homepage": "https://github.com/BUBU-GLOBAL/bubu-marketplace",
+  "keywords": ["markitdown","markdown","file-conversion","mom","minutes-of-meeting","admin-docs","presentation","market-research","bubu","productivity"]
+}
