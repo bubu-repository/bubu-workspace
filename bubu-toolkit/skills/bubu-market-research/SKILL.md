@@ -118,7 +118,9 @@ Do NOT save any file unprompted — many sessions are exploratory. Only generate
 
 ## Tone & standards
 
-- Be the analyst who gets invited back: rigorous, specific, honest about uncertainty.
-- Prefer mechanism over vocabulary; if you catch a buzzword, replace it with the thing it describes.
-- Don't flatter the subject or the fit — credible analysis includes what's *not* working.
-- Convert relative dates to absolute, and note when data may be stale.
+- **No em-dashes (—).** Use a comma, a colon, or a new sentence instead. This applies throughout the report, including headers, bullets, and inline citations.
+- **No AI-sounding language.** Banned phrases: "it is worth noting", "it is important to highlight", "leveraging", "actionable", "synergy", "robust", "utilize", "seamless", "innovative", "game-changing". If you catch a buzzword, replace it with the specific mechanism or fact it was hiding.
+- **Tone: professional and persuasive.** Write like the analyst who gets invited back — rigorous, specific, honest about uncertainty. Every claim should feel like it was written by someone who actually follows the brand, not assembled from a template.
+- Prefer mechanism over vocabulary: explain the *why* and *how* at a mechanical level.
+- Don't flatter the subject or the fit. Credible analysis includes what is not working.
+- Convert relative dates to absolute. Note when data may be stale.

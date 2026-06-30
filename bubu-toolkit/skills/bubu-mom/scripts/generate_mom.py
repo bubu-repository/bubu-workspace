@@ -557,6 +557,13 @@ def _table(doc, headers, widths):
     tbl.alignment = WD_TABLE_ALIGNMENT.LEFT
     tbl.allow_autofit = False
     set_table_borders(tbl, HAIRLINE, 4)
+    # Explicit total width in twips — Google Docs needs tblW to honour fixed
+    # column widths; without it the table auto-fits regardless of tblLayout:fixed.
+    tblPr = tbl._tbl.tblPr
+    tblW = OxmlElement("w:tblW")
+    tblW.set(qn("w:w"), str(int(sum(widths) / 635)))  # EMU → twips
+    tblW.set(qn("w:type"), "dxa")
+    tblPr.append(tblW)
     for c, w in enumerate(widths):
         tbl.columns[c].width = w
     hdr = tbl.rows[0]
@@ -804,6 +811,18 @@ def build(data, out_basename):
         val = data.get(key)
         if not val:
             return
+        # Micro-spacer (1 pt exact height) before every section header.
+        # Google Docs ignores space_before on a paragraph that immediately follows
+        # a table; this phantom paragraph breaks the adjacency so the header's
+        # space_before is respected regardless of what the previous section produced.
+        _sp = doc.add_paragraph()
+        _sp_pPr = _sp._p.get_or_add_pPr()
+        _sp_xml = OxmlElement("w:spacing")
+        _sp_xml.set(qn("w:before"), "0")
+        _sp_xml.set(qn("w:after"), "0")
+        _sp_xml.set(qn("w:line"), "20")
+        _sp_xml.set(qn("w:lineRule"), "exact")
+        _sp_pPr.append(_sp_xml)
         add_section_header(doc, label)
         renderer(val)
 
