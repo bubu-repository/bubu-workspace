@@ -70,7 +70,20 @@ Read these before producing any output that needs to represent BUBU — MOM atte
 
 ---
 
-## 6. Writing Voice — StopSlop (applies to ALL prose output)
+## 6. Checkpoint Rule — Save Before You Lose It (applies to ALL work, all skills, current and future)
+
+Never hold significant work only in memory or only in the chat reply. The session can hit a context limit, a usage limit, or an error at any moment; whatever is on disk survives, whatever is not is gone. Therefore:
+
+1. **Write early, write incrementally.** For any task that produces a file (deck, docx, ebook, MOM, research report, code), create the output file as soon as the structure is known and update it section by section. Do not build the whole thing in memory and write once at the end.
+2. **Long tasks get a checkpoint file.** For any task expected to take more than a few steps (multi-section research, multi-file builds, agent-team work), maintain `[FileName].checkpoint.md` next to the output containing: what is done, what is in progress, what remains, and exact resume instructions. Update it after each completed section. Delete it when the task is fully delivered.
+3. **Save before risky or long operations.** Before starting a step that could fail or take long (large render, big conversion, web-heavy research), flush current progress to disk first.
+4. **When a limit is near, stop and save, do not push through.** If the conversation is clearly running long (context is being summarized, or a large amount of work is already done), pause the task, write all partial results and the checkpoint file to disk, and tell the user exactly how to resume. A saved half-result beats a lost full one.
+5. **Agent teams and subagents follow the same rule.** Every teammate saves its output to a file before marking its task complete. The lead never accepts "done" from a teammate without a file path.
+6. **Resuming:** at the start of a session, if the user's request relates to prior work, check for `*.checkpoint.md` files in the relevant `Clients/` folder and continue from there instead of starting over.
+
+---
+
+## 7. Writing Voice — StopSlop (applies to ALL prose output)
 
 Every piece of prose produced in this workspace, in any language and any format (reports, decks, MOMs, emails, chat answers), follows the `bubu-stopslop` skill in the toolkit. If the skill is unavailable, the hard rules still apply:
 

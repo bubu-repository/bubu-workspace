@@ -1,0 +1,29 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "gstack-browse-server",
+      "runtimeExecutable": "env",
+      "runtimeArgs": ["BROWSE_PORT=8377", "bun", "run", "--cwd", "gstack", "server"],
+      "port": 8377
+    },
+    {
+      "name": "juragan-spbu-preview",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "serve", "-l", "4173", "/private/tmp/claude-501/-Users-sea-Claude-Projects-BUBU/a690acfe-0528-414b-807a-1637fcb69d0b/scratchpad"],
+      "port": 4173
+    },
+    {
+      "name": "ebook-landing-preview",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4180", "--directory", "/Users/sea/Claude/Projects/BUBU/Clients/Internal/Documents"],
+      "port": 4180
+    },
+    {
+      "name": "tipe-bbm-quiz",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "/Users/sea/Claude/Projects/tipe-bbm-quiz"],
+      "port": 5173
+    }
+  ]
+}
