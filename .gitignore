@@ -27,3 +27,16 @@ BUBU_Assets/Context/BUBU_CompanyProfile_2026.pdf
 
 # Temp / generated output
 /tmp/
+
+# Node
+node_modules/
+
+# Per-machine Claude settings (permissions differ per machine)
+.claude/settings.local.json
+
+# Skill runtime copies & scratch files
+bubu_assets/
+_tmp_content.json
+
+# Client deliverables — confidential, keep out of the shared GitHub repo
+Clients/

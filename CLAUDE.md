@@ -67,3 +67,15 @@ For full company context (team, clients, positioning, sub-brands), read:
 - `BUBU_Assets/Context/BUBU_Context_PersonalProfile.md`
 
 Read these before producing any output that needs to represent BUBU — MOM attendee titles, document headers, company descriptions, etc.
+
+---
+
+## 6. Writing Voice — StopSlop (applies to ALL prose output)
+
+Every piece of prose produced in this workspace, in any language and any format (reports, decks, MOMs, emails, chat answers), follows the `bubu-stopslop` skill in the toolkit. If the skill is unavailable, the hard rules still apply:
+
+- No em-dashes (—) anywhere. Use a comma, a colon, parentheses, or a new sentence.
+- No AI vocabulary: delve, tapestry, testament, crucial, paramount, robust, seamless, leverage, utilize, synergy, actionable, foster, "navigating the landscape", "it is worth noting".
+- No "It's not X, it's Y" contrast frames. The BUBU tagline is the one exception.
+- Thesis in the first three sentences. Assert, then prove. One hedge maximum per piece.
+- Concrete nouns, real numbers, actual dates. End on the sharpest line, never a recap.

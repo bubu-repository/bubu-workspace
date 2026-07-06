@@ -104,13 +104,12 @@ content as a JSON file; the script renders the branded `.docx` and `.pdf`.
 
 ## How to write good minutes (editorial judgement)
 
-**Red flags to avoid (non-negotiable):**
+**Voice (non-negotiable):** follow the `bubu-stopslop` skill (`bubu-toolkit/skills/bubu-stopslop/SKILL.md`), the single source of truth for banned language, cadence, and the self-edit pass. Always in force: no em-dashes (—), no AI-sounding language, no filler.
 
-- No em-dashes (—) anywhere — not in sentences, not in lists, not in action items. Use a comma, a colon, or a new sentence instead.
-- No AI-sounding language: no "it is worth noting", "it is important to highlight", "leveraging", "synergy", "actionable", "seamless", "robust", "utilize". If you catch yourself writing a phrase a real person would never say out loud, rewrite it.
-- No jargon or filler.
-- No passive voice.
-- Tone is professional and persuasive — write like a senior consultant who earns the room's respect, not like a system generating a report.
+MOM-specific additions:
+
+- No passive voice. Every decision and action item has a named owner as the subject.
+- Write like a senior consultant who earns the room's respect, not like a system generating a report.
 
 The template is only as good as the content you put in it. A senior minute-taker does this:
 

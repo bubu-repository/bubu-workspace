@@ -1,6 +1,6 @@
 {
   "name": "bubu-toolkit",
-  "description": "BUBU Global's all-in-one Cowork toolkit. Skills: MarkItDown (convert any uploaded file to Markdown), BUBU MOM (on-brand Minutes of Meeting in .docx + .pdf), BUBU Admin Docs (branded invoices, letters, SOPs), BUBU Presentation (on-brand decks via Canva MCP), and BUBU Market Research (research planning & synthesis).",
+  "description": "BUBU Global's all-in-one Cowork toolkit. Skills: MarkItDown (convert any uploaded file to Markdown), BUBU MOM (on-brand Minutes of Meeting in .docx + .pdf), BUBU Admin Docs (branded invoices, letters, SOPs), BUBU Presentation (on-brand decks via Canva MCP), BUBU Market Research (research planning & synthesis), and BUBU StopSlop (the house editorial voice: no AI-sounding prose in any output).",
   "author": { "name": "Bubu Global", "email": "myapps@bubu.com" },
   "homepage": "https://github.com/seabub/bubu-workspace",
   "keywords": ["markitdown","markdown","file-conversion","mom","minutes-of-meeting","admin-docs","presentation","market-research","bubu","productivity"]
