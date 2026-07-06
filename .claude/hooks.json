@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "hooks": [
+    {
+      "event": "session_start",
+      "name": "auto-pull-updates",
+      "description": "Pull latest changes from GitHub main branch at session start so team stays in sync",
+      "command": "cd \"${workspaceFolder}\" && git pull --ff-only origin main 2>/dev/null; true",
+      "silent": true
+    }
+  ]
+}

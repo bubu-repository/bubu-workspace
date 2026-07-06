@@ -8,7 +8,7 @@ The shared Claude Code workspace for [BUBU](https://bubu.com) — Indonesia's Cu
 
 This repo is the **single source of truth** for how BUBU uses Claude Code. It contains:
 
-- **bubu-toolkit** — a plugin with 5 skills that do BUBU-specific work (MOM, Admin Docs, Presentations, Market Research, and file conversion)
+- **bubu-toolkit** — a plugin with 6 skills that do BUBU-specific work (MOM, Admin Docs, Presentations, Market Research, file conversion, and self-improvement)
 - **gstack** — 23+ general-purpose workflow skills (design review, QA, browser automation, etc.)
 - **BUBU_Assets** — shared brand assets, context files, and templates
 - **Clients** — where all generated outputs go (organized by client name)
@@ -111,6 +111,15 @@ Converts any uploaded file to clean, structured Markdown before Claude works wit
 
 ---
 
+### `/bubu-upgrade` — Self-Improving Toolkit
+Folds accumulated task learnings into the actual BUBU skills so the setup gets sharper over time. Every task that delivers output logs what worked, what to improve, and client preferences. Every ~10 learnings or monthly, run this skill to edit the skill files directly with the improvements, so a correction made once becomes a rule the whole team's setup follows forever.
+
+**Trigger phrases:** "upgrade skill", "bubu makin pintar", "improve the toolkit", "review learnings", "self-improve"
+
+**Requires:** a restart of Claude Code after skill files are updated
+
+---
+
 ## Folder Structure
 
 ```
@@ -122,14 +131,16 @@ BUBU/
 │   │   ├── bubu-admin-docs/   Admin Docs skill — SKILL.md, scripts, examples
 │   │   ├── bubu-presentation/ Presentation skill — SKILL.md, assets, fonts
 │   │   ├── bubu-market-research/ Market Research skill — SKILL.md, references
-│   │   └── markitdown/        MarkItDown skill — SKILL.md
+│   │   ├── markitdown/        MarkItDown skill — SKILL.md
+│   │   └── bubu-upgrade/      Self-improvement skill — reads Knowledge/, edits skills
 │   └── hooks/                 The auto-convert hook (fires on every file upload)
 │
 ├── bubu-toolkit.plugin        The installable plugin file — this is what you install
 │
-├── BUBU_Assets/               Shared brand assets and reference files
+├── BUBU_Assets/               Shared brand assets, knowledge, and reference files
 │   ├── Brand/                 BUBU logo files (PNG, various variants)
 │   ├── Context/               Company overview, personal profile, cultural map
+│   ├── Knowledge/             Learning logs, client preferences, upgrade history
 │   ├── Templates/             Reusable branded templates (Presentation, Invoice, SOP, Letter)
 │   └── Reference/             Advertising Masterclass and other reference docs
 │
@@ -177,13 +188,15 @@ Sub-folders are only created when there are actual files in them — don't creat
 
 ## Getting Updates
 
-When someone on the team updates a skill or adds a new file:
+**Auto-pull is enabled by default.** Every time you open Claude Code, the workspace automatically syncs with GitHub main. You will see a git pull notification (silent, doesn't interrupt your work).
+
+**If you modify `bubu-toolkit.plugin` locally:** after a pull, restart Claude Code to reload the plugin. If you see skill warnings or old behavior, reinstall `bubu-toolkit.plugin` (Plugins panel → Uninstall → Install from file → select `bubu-toolkit.plugin`).
+
+To manually pull updates (rarely needed):
 
 ```bash
 git pull
 ```
-
-Everyone's workspace syncs. The `bubu-toolkit.plugin` file will also be updated — reinstall it in Claude Code after pulling if the plugin was changed.
 
 To also update gstack to the latest version:
 
