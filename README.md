@@ -210,21 +210,20 @@ git submodule update --remote
 
 Skills live in `bubu-toolkit/skills/`. Each skill is a folder with at minimum a `SKILL.md` file.
 
+**Skills auto-discover:** When you add or edit a skill in `bubu-toolkit/skills/[skill-name]/SKILL.md`, Claude Code automatically discovers it on the next session restart or plugin reload. No plugin rebuild or reinstall needed.
+
 **To edit an existing skill:**
 1. Open the relevant `bubu-toolkit/skills/[skill-name]/SKILL.md`
 2. Make your changes
-3. Rebuild the plugin: from inside `bubu-toolkit/`, run:
-   ```bash
-   cd bubu-toolkit
-   zip -r ../bubu-toolkit.plugin . --exclude "*.DS_Store"
-   ```
-4. Commit and push — the whole team gets the update on `git pull`
+3. Commit and push — the whole team gets the update on `git pull`
 
 **To add a new skill:**
 1. Create a new folder inside `bubu-toolkit/skills/[your-skill-name]/`
 2. Add a `SKILL.md` following the same format as the existing skills
-3. Rebuild the plugin (same zip command above)
-4. Commit and push
+3. Commit and push
+4. Team members pull and restart Claude Code — the new skill auto-discovers
+
+**Note:** `bubu-toolkit.plugin` never needs rebuilding. The binary stays as-is; skills are auto-discovered at runtime. The `zip` command is archived in `scripts/rebuild-plugin.sh` only for historical reference.
 
 ---
 
