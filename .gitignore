@@ -34,8 +34,11 @@ node_modules/
 # Per-machine Claude settings (permissions differ per machine)
 .claude/settings.local.json
 
-# Skill runtime copies & scratch files
-bubu_assets/
+# Skill runtime copies & scratch files (case-insensitive FS: this also matches BUBU_Assets/,
+# so Context/ and Knowledge/ are explicitly re-included below)
+bubu_assets/*
+!bubu_assets/Context/
+!bubu_assets/Knowledge/
 _tmp_content.json
 
 # Client deliverables — confidential, keep out of the shared GitHub repo

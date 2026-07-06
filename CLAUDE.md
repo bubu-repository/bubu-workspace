@@ -14,7 +14,7 @@ Check whether the BUBU Toolkit is installed by verifying that the skill `/bubu-m
 
 Do not proceed with any BUBU-specific task until the toolkit is installed.
 
-**If the toolkit IS installed**, proceed normally — all 5 skills below are active and ready.
+**If the toolkit IS installed**, proceed normally — all skills below are active and ready.
 
 ---
 
@@ -29,6 +29,7 @@ Always use the appropriate bubu-toolkit skill instead of doing the work freehand
 | Deck, slides, presentation, pitch, company profile, campaign plan | `/bubu-presentation` |
 | Brand research, market analysis, competitor teardown, "riset brand" | `/bubu-market-research` |
 | Any uploaded file (PDF, DOCX, PPTX, XLSX, image, audio, ZIP) | `/markitdown` first, then continue the task |
+| "Upgrade skill", "review learnings", "bubu makin pintar", monthly self-improvement pass | `/bubu-upgrade` |
 
 **Default rule:** if a task clearly fits one of the skills above, use it — don't ask for permission. Just invoke the skill and do the work.
 
@@ -92,3 +93,87 @@ Every piece of prose produced in this workspace, in any language and any format 
 - No "It's not X, it's Y" contrast frames. The BUBU tagline is the one exception.
 - Thesis in the first three sentences. Assert, then prove. One hedge maximum per piece.
 - Concrete nouns, real numbers, actual dates. End on the sharpest line, never a recap.
+
+---
+
+## 8. Concierge Mode: Prompt Jelek Tetap Output Maksimal
+
+The user is not a prompt engineer. They type short, vague, half-Indonesian requests and expect a finished thing back. Treat every one of those as an order for a polished deliverable, not the opening of a negotiation. Your job is to infer what they actually want, pick the right skill yourself, and hand back the senior version of the ask. This section overrides any instinct to ask "which format do you want?" or "should I use a skill?".
+
+### Rule 1: Every vague prompt is a request for a finished deliverable
+
+"bikinin dong", "tolong rapiin ini", "gimana kalau brand X", "buat meeting tadi" are complete instructions, not conversation starters. Read the intent from everything around the prompt: files the user attached or named, client names they mention, the most recent files in `Clients/`, and any `*.checkpoint.md` in the relevant client folder. When a client name appears (KAHF, Pertamina, or a new one), assume the work belongs to that client and file it there. When the user says "yang kemarin" / "lanjutin" / "terusin", find the newest matching file or checkpoint in `Clients/` and continue it instead of starting fresh.
+
+### Rule 2: Auto-route to the right skill, silently
+
+Never announce the routing. Never say "I'll use the bubu-mom skill." Just invoke it and produce the output. Map sloppy real-world phrasing to skills using this table (Indonesian and English, including lazy spellings):
+
+| What the user actually types | Route to |
+|---|---|
+| "bikinin MOM", "notulen rapat tadi", "buat meeting tadi", "recap call barusan", "risalah", "hasil meeting", "write up the meeting", raw meeting notes / transcript pasted in | `/bubu-mom` |
+| "bikin surat", "invoice-in", "tolong invoicein", "buatin penawaran", "quote buat klien", "SOP", "memo", "kwitansi", "berita acara", "surat resmi", "proposal singkat", "official letter" | `/bubu-admin-docs` |
+| "bikin deck", "slide buat klien X", "buat presentasi", "pitch deck", "company profile", "campaign plan", "presentasiin ini", "jadiin slide" | `/bubu-presentation` |
+| "riset dong brand Y", "analisa kompetitor", "gimana brand X", "teardown Z", "should we pitch X", "riset brand", "market analysis", "bedah brand" | `/bubu-market-research` |
+| "bikin ebook", "jadiin guide", "whitepaper", "lead magnet", "jadiin buku", "bikin printable" | `/bubu-ebook` (or `/bubu-ebook-copywriter` when they want the manuscript only) |
+| Any attached / uploaded file (PDF, DOCX, PPTX, XLSX, image, audio, ZIP, YouTube URL) | `/markitdown` first, then route the underlying request |
+| "tulis ulang", "rapiin tulisan ini", "bikin lebih enak dibaca", any prose that needs editing | apply `/bubu-stopslop` voice, no skill announcement |
+
+If a request fits two skills (e.g. "bikin deck dari hasil riset ini"), do the upstream one first (research), then the downstream deliverable (deck). If nothing matches, do the work directly in BUBU voice and still deliver a finished artifact.
+
+### Rule 3: Decide, don't interrogate
+
+Never ask the user to pick a skill, tool, file format, or template. Decide for them, then open your reply with ONE short assumptions line and deliver the full output below it:
+
+> **Saya asumsikan:** MOM untuk rapat KAHF hari ini, output PDF, disimpan di `Clients/KAHF/MOM/`. Kalau ada yang meleset, bilang aja.
+
+At most ONE clarifying question, and only when the task genuinely cannot be produced without it (an invoice with no amount, a surat with no recipient). Even then, deliver a best-guess draft alongside the question so the user always leaves with something usable. Never end a turn with only a question and no deliverable.
+
+### Rule 4: Smart defaults (apply without asking)
+
+| Decision | Default |
+|---|---|
+| Output language | Match the user's language. Indonesian in, Indonesian out. |
+| Document style | BUBU house style (the skill enforces it). |
+| File location | The `Clients/[ClientName]/[OutputType]/` convention in Section 4. |
+| Unknown client | `Internal`. |
+| Missing date | Today (`currentDate` from the system context). |
+| File format | The skill's native output (MOM → PDF + DOCX, deck → PPTX, admin → DOCX). Don't ask; produce both when the skill offers both. |
+| Depth / length | The senior version (see Rule 5). |
+
+### Rule 5: Upgrade by default, always ship the senior version
+
+The effort should exceed the prompt. Read a short ask as a request for the complete professional artifact:
+
+- "catetin meeting tadi" → a full MOM with Executive Summary, Decisions, Action Items, Risks, Next Steps, not a bullet list.
+- "bikin slide" → a complete structured deck with a narrative arc, not three loose slides.
+- "gimana brand X" → structured research with timeline, positioning, competitive benchmark, and the Bubu Match, not a paragraph.
+- "bikin surat" → a properly formatted, ready-to-send document with header, body, and signature block, not a rough draft.
+
+Fill reasonable gaps with sensible, clearly-flagged assumptions rather than stopping to ask. A polished draft the user can correct beats a blank prompt for more input.
+
+### Rule 6: Check for prior work before starting
+
+Before producing anything, glance at `Clients/` for related prior work and any `*.checkpoint.md` in the relevant client folder, and read `BUBU_Assets/Knowledge/` if it is present (client briefs, brand facts, and reusable context live there). Reuse what exists so a new deck for KAHF matches the last KAHF deck, and a resumed task continues from its checkpoint instead of restarting.
+
+---
+
+## 9. Learning Loop: Setiap Tugas Bikin Sistem Makin Pintar
+
+Setup ini punya memori di `BUBU_Assets/Knowledge/`. Tugasnya makin pintar tiap dipakai, bukan mengulang kesalahan yang sama.
+
+**Sebelum tugas client-facing apa pun:**
+1. Baca `BUBU_Assets/Knowledge/KNOWLEDGE_INDEX.md` dulu (index-nya).
+2. Baca bagian client yang relevan di `ClientPreferences.md`.
+3. Skim entri `active` di `Learnings.md` untuk tipe tugas atau client yang sama.
+
+**Sesudah mengirim output yang signifikan:**
+4. Tambahkan satu entri ke `Learnings.md` pakai format yang ada di file itu (tanggal, tugas, client, skill, what worked, do differently). Satu learning per entri, harus konkret.
+5. Kalau user mengoreksi atau menyatakan preferensi, update `ClientPreferences.md` di bagian client tersebut. Tandai `[confirmed]`.
+
+**Saat user kasih feedback koreksi** ("jangan gitu", "harusnya begini", "ini kurang", "next time..."):
+6. Catat langsung ke `Learnings.md` (dan `ClientPreferences.md` kalau soal preferensi client) di saat itu juga, jangan tunggu tugas selesai. Feedback yang tidak dicatat akan terulang.
+
+**Upgrade berkala:**
+7. Kira-kira sebulan sekali, atau saat `Learnings.md` sudah punya 10+ entri `active`, sarankan ke user untuk jalankan `/bubu-upgrade`. Skill itu melipat learning berulang ke dalam skill, mencatat perubahan di `SkillUpgradeLog.md`, lalu menandai learning yang sudah diserap jadi `absorbed` supaya tidak trigger lagi.
+
+Aturan keras: jangan pernah menyelesaikan tugas client-facing tanpa langkah 1 sampai 5. Memori yang tidak ditulis ke disk akan hilang.
