@@ -46,3 +46,5 @@ Clients/
 
 # Master decks over GitHub's 100MB limit stay local-only (extracted .md versions are tracked)
 02_LABX_CORE/01_Brand_DNA_and_Master_Decks/*.pptx
+# Uncategorized slide backgrounds/decor extracted from the master deck; local-only, originals live in the pptx
+02_LABX_CORE/02_Visual_Architecture_and_Art_Direction/PNG_Assets/14_Misc_Assets/
