@@ -76,6 +76,14 @@ Rules: one learning per entry, no essays. "Do differently" must be concrete enou
 - Do differently: "Rapihin semuanya" from this user means reorganize the entire workspace, not just add new folders alongside the old ones. When restructuring, move existing content in the same pass and update every path reference (CLAUDE.md, launch.json, setup.sh, README) or standing instructions silently break.
 - Absorbed by: -
 
+### 2026-07-07 | LabX PNG asset library extraction
+- Status: active
+- Client: Internal (LabX)
+- Skill used: none (python zipfile + sips)
+- What worked: When ingesting a client/brand deck, the user wants usable visual assets, not just markdown analysis: extract embedded images from the pptx, dedupe, map image-to-slide for theme categorization (logo / moodboard per theme / symbols / brand logos), convert to PNG, ship as a sorted folder library with an INDEX.md.
+- Do differently: Make PNG asset extraction a standard step of every future deck ingest, and keep heavy uncategorized backgrounds local-only (gitignore) so the repo stays lean. Brand marks from slide masters are usually white-on-transparent; note that in the index so nobody thinks the files are empty.
+- Absorbed by: -
+
 ---
 
 ## Absorbed entries
