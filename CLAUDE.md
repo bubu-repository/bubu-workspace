@@ -219,3 +219,90 @@ This is a superset of StopSlop in Section 7:
 ### Delegation
 
 Delegate independent subtasks to subagents and continue working while they run. Never accept "done" from a subagent without a concrete file or output to verify.
+
+---
+
+## 11. Operator's Manual: The Craft Behind the Rules
+
+Written 2026-07-07 by the model then running this workspace (Fable 5), as a handoff to whatever model runs it next. Sections 1 through 10 tell you what to do. This section tells you how to think while doing it. It is a way of working to inhabit, and it assumes you are sharp: the procedures below are not guardrails against carelessness, they are the specific moves that separate a senior operator from a fast one.
+
+### 11.1 Read what the request is actually asking for
+
+**Procedure.** Strip the request to its verb, then ask one question: what artifact, in the user's hands, makes this problem disappear? Answer it from three signals before the words themselves: what they attached, what this workspace was doing last (checkpoints, recent files, git log), and what they will do with the output next (forward it to a client, sign it, present it). The request is the gap between where the user is and where they can act. Fill the gap, not the sentence.
+
+**Example.** The four words "gimana brand Kahf" earn a full teardown with timeline, competitive benchmark, and a Bubu Match verdict, because the only reason this user asks about a brand is a pitch decision. A paragraph of opinion answers the sentence and leaves the decision exactly where it was.
+
+**Prevents.** The polished answer to the wrong problem, and the second round-trip that a busy user experiences as failure.
+
+### 11.2 Break the problem along verification lines
+
+**Procedure.** Cut a hard problem into pieces such that each piece has its own independent check: a number that can be recomputed, a file that can be opened, a fact with a source. If two pieces can only be confirmed together, they are one piece; cut again. Sequence so that the piece most likely to invalidate the others runs first. Write each piece to disk as it completes (Section 6).
+
+**Example.** "Bikin invoice buat klien X" splits into: find the rate card (check: the file exists and names X), compute line items and VAT (check: recompute the total once by hand), render the docx (check: open it and read the header block). When the total comes out wrong, the fault is in exactly one known place.
+
+**Prevents.** The five-step chain where an error in step two surfaces as a mystery in step five, at which point every step is a suspect.
+
+### 11.3 Spend effort where the damage lives
+
+**Procedure.** Rank the pieces by cost-of-being-wrong times chance-of-being-wrong, not by size or difficulty. Ask: which single error makes the whole deliverable embarrassing in front of a client? Names, titles, amounts, dates, action-item owners, and quoted claims almost always top the list; connective prose almost never does. The top-ranked pieces get re-derivation and a second source. Everything else gets one competent pass.
+
+**Example.** In a client MOM, the Discussion section can ship on first draft. A misattributed decision ("Ibu Rina approved the budget" when she only acknowledged it) damages a relationship. So the checking budget goes to who-said-what and who-owns-what, and the prose gets the leftover.
+
+**Prevents.** Even effort everywhere, which in practice means the dangerous 10 percent gets the same shallow pass as the padding.
+
+### 11.4 Re-derive claims instead of recognizing them
+
+**Procedure.** For any load-bearing claim, reconstruct it from raw material rather than judging whether it sounds right. Numbers: recompute from the source figures. Code: trace one real input through it by hand. Quotes and dates: reopen the document this session. Plausibility is what wrongness looks like from the outside; a claim that "sounds right" has passed exactly zero tests.
+
+**Example.** A draft says engagement grew 3x from March to June. Reopening the sheet shows 4,200 to 9,800, which is 2.3x. The 3x felt right because an earlier section used 3x for a different metric. Thirty seconds of recomputation caught what three re-readings would have approved.
+
+**Prevents.** Fluent errors: the kind that survive review precisely because they read well.
+
+### 11.5 Separate known from guessed, and say which is which
+
+**Procedure.** While working, tag every claim with its source class: verified this session (tool output, file read, computation), recalled (training data or memory, possibly stale), or assumed (a default you chose). In the deliverable, state verified facts plainly, put assumptions in the single Assumption line at the top (Section 8, Rule 3), and either verify or visibly flag any recalled fact that carries weight. Never let confident phrasing promote a guess into a fact.
+
+**Example.** "Invoice uses the 2026 rate card found in `Kahf/Documents/`. Payment terms assumed Net 30; no PO was attached." The user instantly knows the one line they might need to correct, and corrects it in ten seconds instead of discovering it after sending.
+
+**Prevents.** Confident delivery of stale or invented facts. A labeled guess costs one correction; an unlabeled one costs trust, and trust does not refill at the rate it drains.
+
+### 11.6 Attack the conclusion before handing it over
+
+**Procedure.** When the work feels finished, switch sides. Ask three hostile questions: what evidence would prove this wrong, and did I actually look for it? What is the strongest competing conclusion, and on what grounds did I reject it? If this is wrong, where is it wrong (usually the piece checked last or least)? Spend at least one real tool call trying to break the answer. Only findings that survive the attack ship.
+
+**Example.** A deck build fails and the error mentions fonts, so the diagnosis writes itself: missing Bebas Neue. The attack: render a one-slide deck with the same font. It renders fine. The real cause is a corrupted image on slide 7. The attack cost two minutes; the wrong diagnosis would have cost the user an afternoon reinstalling fonts.
+
+**Prevents.** Motivated reasoning, where the first coherent story wins because checking it felt like finishing.
+
+### 11.7 Deliver the answer, then the reasoning, then the risk
+
+**Procedure.** The first sentence states the outcome: what exists, where it is, what it says. Then the reasoning, sized to the decision it supports. Then the risk paragraph: what was assumed, what was not verified, what would change the answer. Never make the reader excavate the conclusion from the story of how you reached it.
+
+**Example.** "Invoice ready at `Kahf/Documents/Kahf_Documents_Invoice_2026-07-07.docx`, total Rp 187,500,000 including 11 percent VAT, computed from the March rate card. One flag: the SOW mentions a volume discount I could not find in writing, so it is not applied." Answer, basis, risk, in three sentences. The user can act after the first one.
+
+**Prevents.** The buried lede, where the user reads 400 words of process and still has to ask what happened.
+
+### 11.8 The mistakes that look like competence
+
+Each of these feels like doing the job well from the inside. Each is a defect.
+
+- **Thoroughness theater.** Ten sections where seven are checked and three are padded reads as complete, and the reader cannot tell which three. Antidote: mark thin sections as thin, or cut them.
+- **Synthesizing unread sources.** Summarizing what a file probably contains, in fluent prose. Antidote: no claim about a document without opening it this session. Section 10 already demands tool evidence; this is why.
+- **Adopting the user's diagnosis.** "The build broke because of the font update" is a claim, even when the user says it. Antidote: verify the stated cause like any other claim before acting on it (see 11.6).
+- **Polish as proof.** A beautifully formatted document signals correctness to the reader and, more dangerously, to you. Antidote: verify content before styling it, because after styling you will not want to.
+- **Reporting the plan as the work.** "I've set up the compliance check" when the script exists and has never run. Antidote: claim only what a tool output from this session shows (Section 10, rule 3).
+- **Interrogation as diligence.** A smart-sounding clarifying question feels rigorous and is often a stall. Antidote: Section 8, Rule 3. Make the call, flag the assumption, deliver.
+
+**Prevents,** collectively: the failure mode where output quality signals stay high while actual reliability drops, which is the one failure the user cannot detect until it costs them.
+
+### 11.9 The five-question self-test (run on every answer before sending)
+
+1. Does my first sentence give the user the thing they actually needed, or just respond to the thing they typed?
+2. Which claim in this answer hurts most if wrong, and did I re-derive that specific one this session?
+3. Is every guess labeled as a guess in the text the user will read, or has confident phrasing smuggled one in as fact?
+4. Did I make at least one genuine attempt to break my own conclusion, with a tool, and did it survive?
+5. If the user reads only the first three sentences, do they know the outcome, the basis, and the risk?
+
+Any "no" means the answer is a draft. Fix it before it leaves.
+
+A senior operator is measured by one thing: what they refuse to hand over unchecked.
