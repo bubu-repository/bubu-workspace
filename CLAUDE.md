@@ -33,6 +33,10 @@ Always use the appropriate bubu-toolkit skill instead of doing the work freehand
 
 **Default rule:** if a task clearly fits one of the skills above, use it — don't ask for permission. Just invoke the skill and do the work.
 
+**Brand compliance:** every deck produced via `/bubu-presentation` must pass its
+built-in `check_brand_compliance.py` gate before being handed to the user. This is
+enforced inside the skill's own QA workflow, not a separate step to remember here.
+
 ---
 
 ## 3. File Upload Rule
