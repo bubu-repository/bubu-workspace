@@ -7,9 +7,9 @@ echo "Setting up BUBU workspace..."
 git submodule update --init --depth 1
 
 # Run gstack setup (team mode + autodetect)
-cd gstack
+cd 03_FABLE_ORCHESTRATOR/gstack
 ./setup --host auto --team
-cd ..
+cd ../..
 
 # Configure git pull to fast-forward only (safe for auto-pull hook)
 git config pull.ff only

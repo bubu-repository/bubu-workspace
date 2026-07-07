@@ -1,0 +1,26 @@
+{
+  "skill_name": "bubu-press-release",
+  "evals": [
+    {
+      "id": 0,
+      "eval_name": "dubai-expansion-announcement",
+      "prompt": "We're officially announcing BUBU's Dubai expansion. I need a press release for international marketing/tech media. Key facts: Dubai hub opens Q3 2026, positioning is 'From Jakarta to Dubai — 1 Ecosystem, 2 Regions', the expansion is led by Fauzan Hammy (Lead Business & Innovation). Audience: trade press like Campaign Asia, The Drum, regional business media.",
+      "expected_output": "A press release opening with a contrarian cultural hook (not 'BUBU is proud to announce'), second-order framing of the expansion, real BUBU proof points as evidence, dateline, boilerplate, media contact, no PR clichés, preceded by a 2-line strategic note.",
+      "files": []
+    },
+    {
+      "id": 1,
+      "eval_name": "angle-pivot-with-existing-log",
+      "prompt": "Write a press release about the Superwomen of Impact 2026 global tour (New York, Doha, Paris, Melbourne, Bali). There's an angle log file from our past releases at the path provided — make sure this one doesn't repeat what we've done.",
+      "expected_output": "Release that reads the seeded angle log, avoids the already-used 'technological innovation' and 'women-in-tech statistics' angles, complies with the learned rule about lived behavior in hooks, and appends a new entry to the angle log.",
+      "files": ["inputs/bubu-press-angle-log.md"]
+    },
+    {
+      "id": 2,
+      "eval_name": "client-campaign-casual-brief",
+      "prompt": "bubu just wrapped the PUBG Mobile x Machine56 collab (limited edition in-game skin + offline product drop). boss wants a press release for gaming media asap, make it punchy",
+      "expected_output": "Punchy gaming-media release with a subcultural hook, grounded only in verified facts about the collab, gaming-literate tone, full release furniture, no invented metrics.",
+      "files": []
+    }
+  ]
+}
