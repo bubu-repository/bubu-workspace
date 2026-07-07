@@ -31,6 +31,7 @@ bubu-presentation/
 ├── assets/
 │   ├── bubu-theme.js     ← THE ENGINE: BRAND tokens + 21 layout functions + logo + texture
 │   ├── embed_fonts.py    ← embeds the brand fonts INTO the .pptx (run after building)
+│   ├── check_brand_compliance.py ← QA gate: verifies colors/fonts match the locked tokens
 │   ├── build_template.js ← worked example that builds the reference deck
 │   ├── bubu-template.pptx← rendered reference deck (21 layouts, fonts embedded)
 │   ├── design-spec.md    ← exact hex / fonts / sizes / spacing
@@ -69,7 +70,10 @@ sibling `logo/` and `fonts/` folders — the logo paths resolve relative to the 
    key content per slide), then wait for the user's go-ahead before building.
 
 4. **Build** with the theme, then **embed fonts** (next section).
-5. **QA** with the pptx skill (render + subagent). Fix real defects, then stop.
+5. **QA** in this order: run `check_brand_compliance.py` first (fast, deterministic —
+   catches token drift before spending time on visual QA); it must print `PASS`. Then
+   run the pptx skill's visual QA (render + subagent) for layout defects. Fix real
+   defects, then stop.
 6. **Save** the `.pptx` to the workspace `Presentations/` folder unless told otherwise.
 
 ## Building a deck
@@ -138,7 +142,17 @@ mkdir -p ~/.fonts && cp <skill>/assets/fonts/*.ttf ~/.fonts/ && fc-cache -f ~/.f
 - Audience: Indonesia-first but globally ambitious.
 - Headlines: short, bold, declarative, all-caps; let one orange word carry the punch.
 
-## QA (required — use the pptx skill)
+## QA (required — brand compliance, then the pptx skill)
+Brand compliance is a hard gate — run it before anything else:
+```bash
+python ./bubu_assets/check_brand_compliance.py deck.pptx
+```
+It must print `PASS`. On `FAIL` it names the exact off-brand color/font and slide
+number — fix the build script (a hardcoded value that bypassed a `T.*` theme
+function is the usual cause) and rebuild; never hand-edit the output XML to force a
+pass.
+
+Then run the pptx skill's visual QA:
 ```bash
 python <pptx-skill>/scripts/office/soffice.py --headless --convert-to pdf deck.pptx
 rm -f slide-*.jpg && pdftoppm -jpeg -r 150 deck.pdf slide && ls -1 "$PWD"/slide-*.jpg
@@ -155,3 +169,5 @@ overflow, text-on-text/shape overlaps, footer collisions, and low-contrast text.
 - Don't center body text (center only big headlines). Don't make text-only slides where
   a visual belongs. Don't repeat one layout slide after slide.
 - Don't forget `embed_fonts.py` — without it, Bebas Neue may not render on the viewer's machine.
+- Don't hand a deck to the user if `check_brand_compliance.py` reports `FAIL` — fix
+  the build script and rebuild, don't patch the XML by hand to force a pass.
