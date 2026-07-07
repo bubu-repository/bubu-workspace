@@ -52,6 +52,14 @@ Rules: one learning per entry, no essays. "Do differently" must be concrete enou
 - Do differently: Confirm the CTA and target audience up front. The manuscript needed the CTA woven toward the end, which is hard to retrofit. Ask for CTA before writing.
 - Absorbed by: -
 
+### 2026-07-07 | Fable clone architecture blueprint (internal research)
+- Status: active
+- Client: Internal
+- Skill used: none (direct research write-up, StopSlop voice)
+- What worked: Correcting the premise first (Fable is one model; the "orchestrator" behaviors live in the harness and workspace files) turned a speculative reverse-engineering ask into a concrete, buildable blueprint, and using bubu-press-release as the worked example grounded the "formula without template" section in a system we already run.
+- Do differently: For "how does AI tool X work" requests, check Anthropic/vendor docs before writing; the user-supplied doc link plus one extra fetch covered every claim and avoided invented internals.
+- Absorbed by: -
+
 ### 2026-07-06 | AI-for-non-technical-orgs research (4-angle parallel)
 - Status: active
 - Client: Internal
