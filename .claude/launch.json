@@ -4,7 +4,7 @@
     {
       "name": "gstack-browse-server",
       "runtimeExecutable": "env",
-      "runtimeArgs": ["BROWSE_PORT=8377", "bun", "run", "--cwd", "gstack", "server"],
+      "runtimeArgs": ["BROWSE_PORT=8377", "bun", "run", "--cwd", "03_FABLE_ORCHESTRATOR/gstack", "server"],
       "port": 8377
     },
     {
@@ -16,7 +16,7 @@
     {
       "name": "ebook-landing-preview",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "4180", "--directory", "/Users/sea/Claude/Projects/BUBU/Clients/Internal/Documents"],
+      "runtimeArgs": ["-m", "http.server", "4180", "--directory", "/Users/sea/Claude/Projects/BUBU/01_BUBU_CULTURAL_AGENCY/05_Client_Presentations_and_Decks/Internal/Documents"],
       "port": 4180
     },
     {

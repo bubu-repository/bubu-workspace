@@ -43,3 +43,6 @@ _tmp_content.json
 
 # Client deliverables — confidential, keep out of the shared GitHub repo
 Clients/
+
+# Master decks over GitHub's 100MB limit stay local-only (extracted .md versions are tracked)
+02_LABX_CORE/01_Brand_DNA_and_Master_Decks/*.pptx

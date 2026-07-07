@@ -45,17 +45,17 @@ Exception: skip conversion if the file is already `.md` or plain `.txt` with no 
 
 ## 4. Output Convention
 
-All generated files must be saved inside the `Clients/` folder following this structure:
+All generated files must be saved inside the `01_BUBU_CULTURAL_AGENCY/05_Client_Presentations_and_Decks/` folder following this structure:
 
 ```
-Clients/[ClientName]/[OutputType]/[FileName]
+01_BUBU_CULTURAL_AGENCY/05_Client_Presentations_and_Decks/[ClientName]/[OutputType]/[FileName]
 ```
 
 - **ClientName**: the company or person the work is for. Use `Internal` for BUBU's own internal work.
 - **OutputType**: `MOM`, `Decks`, `Documents`, `Research` — only create the folder when there's an actual file to put in it.
 - **FileName format**: `[ClientName]_[OutputType]_[Description]_[YYYY-MM-DD].[ext]`
 
-Example: `Clients/MyPertamina/MOM/MyPertamina_MOM_KickoffMeeting_2026-07-01.pdf`
+Example: `01_BUBU_CULTURAL_AGENCY/05_Client_Presentations_and_Decks/MyPertamina/MOM/MyPertamina_MOM_KickoffMeeting_2026-07-01.pdf`
 
 ---
 
@@ -64,8 +64,8 @@ Example: `Clients/MyPertamina/MOM/MyPertamina_MOM_KickoffMeeting_2026-07-01.pdf`
 BUBU (bubu.com) is a **Cultural Intelligence Agency** based in Jakarta — 30 years of turning culture into brands, products, and experiences. When generating any output, the tone should match BUBU's voice: confident, culturally grounded, not corporate-generic. The tagline is *"It's not about visibility. It's about relevance."*
 
 For full company context (team, clients, positioning, sub-brands), read:
-- `BUBU_Assets/Context/BUBU_Context_CompanyOverview.md`
-- `BUBU_Assets/Context/BUBU_Context_PersonalProfile.md`
+- `01_BUBU_CULTURAL_AGENCY/01_Brand_DNA_and_Philosophy/BUBU_Context_CompanyOverview.md`
+- `01_BUBU_CULTURAL_AGENCY/01_Brand_DNA_and_Philosophy/BUBU_Context_PersonalProfile.md`
 
 Read these before producing any output that needs to represent BUBU — MOM attendee titles, document headers, company descriptions, etc.
 
@@ -80,7 +80,7 @@ Never hold significant work only in memory or only in the chat reply. The sessio
 3. **Save before risky or long operations.** Before starting a step that could fail or take long (large render, big conversion, web-heavy research), flush current progress to disk first.
 4. **When a limit is near, stop and save, do not push through.** If the conversation is clearly running long (context is being summarized, or a large amount of work is already done), pause the task, write all partial results and the checkpoint file to disk, and tell the user exactly how to resume. A saved half-result beats a lost full one.
 5. **Agent teams and subagents follow the same rule.** Every teammate saves its output to a file before marking its task complete. The lead never accepts "done" from a teammate without a file path.
-6. **Resuming:** at the start of a session, if the user's request relates to prior work, check for `*.checkpoint.md` files in the relevant `Clients/` folder and continue from there instead of starting over.
+6. **Resuming:** at the start of a session, if the user's request relates to prior work, check for `*.checkpoint.md` files in the relevant `01_BUBU_CULTURAL_AGENCY/05_Client_Presentations_and_Decks/` folder and continue from there instead of starting over.
 
 ---
 
@@ -102,7 +102,7 @@ The user is not a prompt engineer. They type short, vague, half-Indonesian reque
 
 ### Rule 1: Every vague prompt is a request for a finished deliverable
 
-"bikinin dong", "tolong rapiin ini", "gimana kalau brand X", "buat meeting tadi" are complete instructions, not conversation starters. Read the intent from everything around the prompt: files the user attached or named, client names they mention, the most recent files in `Clients/`, and any `*.checkpoint.md` in the relevant client folder. When a client name appears (KAHF, Pertamina, or a new one), assume the work belongs to that client and file it there. When the user says "yang kemarin" / "lanjutin" / "terusin", find the newest matching file or checkpoint in `Clients/` and continue it instead of starting fresh.
+"bikinin dong", "tolong rapiin ini", "gimana kalau brand X", "buat meeting tadi" are complete instructions, not conversation starters. Read the intent from everything around the prompt: files the user attached or named, client names they mention, the most recent files in `01_BUBU_CULTURAL_AGENCY/05_Client_Presentations_and_Decks/`, and any `*.checkpoint.md` in the relevant client folder. When a client name appears (KAHF, Pertamina, or a new one), assume the work belongs to that client and file it there. When the user says "yang kemarin" / "lanjutin" / "terusin", find the newest matching file or checkpoint in `01_BUBU_CULTURAL_AGENCY/05_Client_Presentations_and_Decks/` and continue it instead of starting fresh.
 
 ### Rule 2: Auto-route to the right skill, silently
 
@@ -124,7 +124,7 @@ If a request fits two skills (e.g. "bikin deck dari hasil riset ini"), do the up
 
 Never ask the user to pick a skill, tool, file format, or template. Decide for them, then open your reply with ONE short assumptions line and deliver the full output below it:
 
-> **Saya asumsikan:** MOM untuk rapat KAHF hari ini, output PDF, disimpan di `Clients/KAHF/MOM/`. Kalau ada yang meleset, bilang aja.
+> **Saya asumsikan:** MOM untuk rapat KAHF hari ini, output PDF, disimpan di `01_BUBU_CULTURAL_AGENCY/05_Client_Presentations_and_Decks/KAHF/MOM/`. Kalau ada yang meleset, bilang aja.
 
 At most ONE clarifying question, and only when the task genuinely cannot be produced without it (an invoice with no amount, a surat with no recipient). Even then, deliver a best-guess draft alongside the question so the user always leaves with something usable. Never end a turn with only a question and no deliverable.
 
@@ -134,7 +134,7 @@ At most ONE clarifying question, and only when the task genuinely cannot be prod
 |---|---|
 | Output language | Match the user's language. Indonesian in, Indonesian out. |
 | Document style | BUBU house style (the skill enforces it). |
-| File location | The `Clients/[ClientName]/[OutputType]/` convention in Section 4. |
+| File location | The `01_BUBU_CULTURAL_AGENCY/05_Client_Presentations_and_Decks/[ClientName]/[OutputType]/` convention in Section 4. |
 | Unknown client | `Internal`. |
 | Missing date | Today (`currentDate` from the system context). |
 | File format | The skill's native output (MOM → PDF + DOCX, deck → PPTX, admin → DOCX). Don't ask; produce both when the skill offers both. |
@@ -153,16 +153,16 @@ Fill reasonable gaps with sensible, clearly-flagged assumptions rather than stop
 
 ### Rule 6: Check for prior work before starting
 
-Before producing anything, glance at `Clients/` for related prior work and any `*.checkpoint.md` in the relevant client folder, and read `BUBU_Assets/Knowledge/` if it is present (client briefs, brand facts, and reusable context live there). Reuse what exists so a new deck for KAHF matches the last KAHF deck, and a resumed task continues from its checkpoint instead of restarting.
+Before producing anything, glance at `01_BUBU_CULTURAL_AGENCY/05_Client_Presentations_and_Decks/` for related prior work and any `*.checkpoint.md` in the relevant client folder, and read `01_BUBU_CULTURAL_AGENCY/02_Subculture_Research_and_Data/` if it is present (client briefs, brand facts, and reusable context live there). Reuse what exists so a new deck for KAHF matches the last KAHF deck, and a resumed task continues from its checkpoint instead of restarting.
 
 ---
 
 ## 9. Learning Loop: Setiap Tugas Bikin Sistem Makin Pintar
 
-Setup ini punya memori di `BUBU_Assets/Knowledge/`. Tugasnya makin pintar tiap dipakai, bukan mengulang kesalahan yang sama.
+Setup ini punya memori di `01_BUBU_CULTURAL_AGENCY/02_Subculture_Research_and_Data/`. Tugasnya makin pintar tiap dipakai, bukan mengulang kesalahan yang sama.
 
 **Sebelum tugas client-facing apa pun:**
-1. Baca `BUBU_Assets/Knowledge/KNOWLEDGE_INDEX.md` dulu (index-nya).
+1. Baca `01_BUBU_CULTURAL_AGENCY/02_Subculture_Research_and_Data/KNOWLEDGE_INDEX.md` dulu (index-nya).
 2. Baca bagian client yang relevan di `ClientPreferences.md`.
 3. Skim entri `active` di `Learnings.md` untuk tipe tugas atau client yang sama.
 

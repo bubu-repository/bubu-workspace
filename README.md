@@ -10,9 +10,9 @@ This repo is the **single source of truth** for how BUBU uses Claude Code. It co
 
 - **bubu-toolkit** — a plugin with 6 skills that do BUBU-specific work (MOM, Admin Docs, Presentations, Market Research, file conversion, and self-improvement)
 - **gstack** — 23+ general-purpose workflow skills (design review, QA, browser automation, etc.)
-- **BUBU_Assets** — shared brand assets, context files, and templates
-- **Clients** — where all generated outputs go (organized by client name)
-- **MOM/scripts** — the scripts that power the MOM document generator
+- **01_BUBU_CULTURAL_AGENCY** — brand DNA, knowledge, visual assets, and all client outputs
+- **02_LABX_CORE** — the LabX brand system (master decks, art direction, strategic formulas)
+- **03_FABLE_ORCHESTRATOR** — system blueprints, local configs (incl. MOM scripts), and the gstack submodule
 
 ---
 
@@ -73,7 +73,7 @@ Drop your raw meeting notes, a transcript, a voice-memo recap, or a chat log. Th
 
 **Trigger phrases:** "minutes of meeting", "MOM", "notulen", "write up this meeting", "recap the call"
 
-**Output goes to:** `Clients/[ClientName]/MOM/` or `Clients/Internal/MOM/`
+**Output goes to:** `01_BUBU_CULTURAL_AGENCY/05_Client_Presentations_and_Decks/[ClientName]/MOM/` or `01_BUBU_CULTURAL_AGENCY/05_Client_Presentations_and_Decks/Internal/MOM/`
 
 ---
 
@@ -82,7 +82,7 @@ Generates any BUBU administrative document as a branded `.docx` — official let
 
 **Trigger phrases:** "buatkan surat", "bikin invoice", "buat SOP", "penawaran", "official letter", "memo"
 
-**Output goes to:** `Clients/[ClientName]/Documents/` or wherever makes sense for the client
+**Output goes to:** `01_BUBU_CULTURAL_AGENCY/05_Client_Presentations_and_Decks/[ClientName]/Documents/` or wherever makes sense for the client
 
 ---
 
@@ -91,7 +91,7 @@ Creates on-brand BUBU strategy and campaign decks as `.pptx` — with the BUBU v
 
 **Trigger phrases:** "deck", "slides", "presentation", "pitch", "proposal", "company profile", "strategy deck"
 
-**Output goes to:** `Clients/[ClientName]/Decks/`
+**Output goes to:** `01_BUBU_CULTURAL_AGENCY/05_Client_Presentations_and_Decks/[ClientName]/Decks/`
 
 ---
 
@@ -100,7 +100,7 @@ Deep, citation-backed marketing research on a brand, campaign, competitor, or ma
 
 **Trigger phrases:** "research [brand]", "marketing analysis", "teardown", "riset brand", "analisa brand", "competitive deep-dive"
 
-**Output goes to:** `Clients/[ClientName]/Research/`
+**Output goes to:** `01_BUBU_CULTURAL_AGENCY/05_Client_Presentations_and_Decks/[ClientName]/Research/`
 
 ---
 
@@ -125,39 +125,37 @@ Folds accumulated task learnings into the actual BUBU skills so the setup gets s
 ```
 BUBU/
 │
-├── bubu-toolkit/              Source code for the BUBU plugin
-│   ├── skills/
-│   │   ├── bubu-mom/          MOM skill — SKILL.md, scripts, examples, references
-│   │   ├── bubu-admin-docs/   Admin Docs skill — SKILL.md, scripts, examples
-│   │   ├── bubu-presentation/ Presentation skill — SKILL.md, assets, fonts
-│   │   ├── bubu-market-research/ Market Research skill — SKILL.md, references
-│   │   ├── markitdown/        MarkItDown skill — SKILL.md
-│   │   └── bubu-upgrade/      Self-improvement skill — reads Knowledge/, edits skills
-│   └── hooks/                 The auto-convert hook (fires on every file upload)
+├── 00_GLOBAL_CORE_SYSTEMS/                  System-level directives and shared memory
+│   ├── 01_System_Directives_and_Prompts/
+│   ├── 02_Shared_AI_Memory_Ledger/
+│   ├── 03_Global_Slop_Filters_and_Negative_Constraints/
+│   └── UserGuide.md
 │
+├── 01_BUBU_CULTURAL_AGENCY/                 Everything BUBU-brand
+│   ├── 01_Brand_DNA_and_Philosophy/         Company overview, profile, cultural map
+│   │   └── Visual_Assets/                   Logo, fonts, templates, theme, reference
+│   ├── 02_Subculture_Research_and_Data/     Learnings, client preferences, knowledge index
+│   ├── 03_Media_and_Press_Releases/         Press release skill + media assets
+│   ├── 04_Ebooks_and_Editorial_Assets/      Ebook skills + editorial assets
+│   └── 05_Client_Presentations_and_Decks/   All client outputs (per client)
+│       └── [ClientName]/
+│           ├── MOM/ · Decks/ · Documents/ · Research/
+│
+├── 02_LABX_CORE/                            LabX brand system
+│   ├── 01_Brand_DNA_and_Master_Decks/       Master deck + LABX_CORE_SYSTEM_CONTEXT.md
+│   ├── 02_Visual_Architecture_and_Art_Direction/
+│   ├── 03_Strategic_Formulas_and_Methodologies/
+│   ├── 04_Experimental_Projects_and_Sprints/
+│   └── 05_Outputs_and_Deliverables/
+│
+├── 03_FABLE_ORCHESTRATOR/                   System blueprints, configs, tooling
+│   ├── 02_Local_and_Offline_Configs/mom-scripts/   generate-mom.sh, mom-formatter.js
+│   └── gstack/                              gstack submodule — 23+ general skills
+│
+├── 04_ARCHIVES_AND_DEPRECATED/              Old drafts and legacy prompts
+│
+├── bubu-toolkit/              Source code for the BUBU plugin (skills + hooks)
 ├── bubu-toolkit.plugin        The installable plugin file — this is what you install
-│
-├── BUBU_Assets/               Shared brand assets, knowledge, and reference files
-│   ├── Brand/                 BUBU logo files (PNG, various variants)
-│   ├── Context/               Company overview, personal profile, cultural map
-│   ├── Knowledge/             Learning logs, client preferences, upgrade history
-│   ├── Templates/             Reusable branded templates (Presentation, Invoice, SOP, Letter)
-│   └── Reference/             Advertising Masterclass and other reference docs
-│
-├── Clients/                   All generated outputs, organized by client
-│   └── [ClientName]/
-│       ├── MOM/               Minutes of meeting files
-│       ├── Decks/             Presentation files
-│       ├── Documents/         Admin docs (letters, invoices, SOPs)
-│       └── Research/          Market research reports
-│                              (folders are only created when there are actual files)
-│
-├── MOM/
-│   └── scripts/               generate-mom.sh and mom-formatter.js (used by the MOM skill)
-│
-├── gstack/                    gstack submodule — 23+ general skills (auto-updates)
-├── Base/                      Claude Code base configuration and Higgsfield skills
-├── bubu-toolkit.plugin        Installable plugin bundle
 ├── setup.sh                   Run once after cloning to initialize everything
 └── README.md                  This file
 ```
@@ -166,10 +164,10 @@ BUBU/
 
 ## Where Outputs Go
 
-Every file generated by a skill should be saved inside `Clients/`:
+Every file generated by a skill should be saved inside `01_BUBU_CULTURAL_AGENCY/05_Client_Presentations_and_Decks/`:
 
 ```
-Clients/
+01_BUBU_CULTURAL_AGENCY/05_Client_Presentations_and_Decks/
 ├── Internal/           For BUBU internal meetings and documents
 │   └── MOM/
 │       └── BUBU_Internal_MOM_WeeklySync_2026-07-01.pdf
