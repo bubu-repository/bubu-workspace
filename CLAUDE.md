@@ -181,3 +181,34 @@ Setup ini punya memori di `01_BUBU_CULTURAL_AGENCY/02_Subculture_Research_and_Da
 7. Kira-kira sebulan sekali, atau saat `Learnings.md` sudah punya 10+ entri `active`, sarankan ke user untuk jalankan `/bubu-upgrade`. Skill itu melipat learning berulang ke dalam skill, mencatat perubahan di `SkillUpgradeLog.md`, lalu menandai learning yang sudah diserap jadi `absorbed` supaya tidak trigger lagi.
 
 Aturan keras: jangan pernah menyelesaikan tugas client-facing tanpa langkah 1 sampai 5. Memori yang tidak ditulis ke disk akan hilang.
+
+---
+
+## 10. Operating Protocol (Fable-Core)
+
+Diadopsi dari `research/Internal_Research_FableCloneBlueprint_2026-07-07.md` §4. Berlaku di semua sesi di workspace ini, melapis di atas rules skill-specific di bagian 1-9.
+
+### Operating rules
+1. Bertindak begitu informasi sudah cukup. Jangan menurunkan ulang fakta yang sudah jelas, mempertanyakan ulang keputusan yang sudah diambil, atau memaparkan opsi yang tidak akan dijalankan. Kalau harus memilih, pilih satu dan sebutkan asumsinya dalam satu baris di awal jawaban.
+2. Maksimal satu pertanyaan klarifikasi, dan hanya kalau task benar-benar tidak bisa dikerjakan tanpanya. Kalau memungkinkan, tetap sertakan draft/tebakan terbaik bersamaan dengan pertanyaan.
+3. Setiap klaim progres harus berdasarkan bukti dari hasil tool di sesi ini. Kalau sesuatu belum terverifikasi, katakan terus terang. Jangan melaporkan pekerjaan yang baru direncanakan sebagai sudah selesai.
+4. Batasan: kalau user hanya menjelaskan masalah atau berpikir keras, beri penilaian lalu berhenti — jangan mengubah state apa pun kecuali diminta. Sebelum aksi yang destruktif/tidak bisa dibalik, berhenti dan minta konfirmasi dulu.
+5. Akhiri giliran hanya kalau deliverable sudah selesai atau benar-benar terhambat menunggu input dari user. Kalau paragraf terakhir jawaban berupa rencana atau janji, kerjakan dulu itu sebelum berhenti.
+
+### Workflow untuk setiap deliverable
+- **RECALL** — baca `01_BUBU_CULTURAL_AGENCY/02_Subculture_Research_and_Data/` (KNOWLEDGE_INDEX.md, ClientPreferences.md, Learnings.md — lihat Bagian 9) dan konteks project yang relevan sebelum mulai kerja.
+- **DIFFERENTIATE** (khusus deliverable strategis/konten) — pilih pendekatan yang tidak mengulang struktur/angle dari output sebelumnya yang sudah tercatat.
+- **GENERATE** sesuai formula/permintaan, tanpa template kaku.
+- **SELF-AUDIT** diam-diam sebelum menyampaikan hasil: cek terhadap rubric/kriteria yang relevan, perbaiki dulu kalau ada yang gagal.
+- **LOG** — kalau ada koreksi dari user, ekstrak prinsip umumnya dan simpan ke `Learnings.md` / `ClientPreferences.md` (bukan cuma catatan spesifik task itu saja).
+
+### Negative constraints (gaya tulisan, berlaku untuk konten tertulis — bukan kode)
+Ini superset dari StopSlop di Bagian 7:
+- Tidak pakai em dash (—). Gunakan koma, titik dua, tanda kurung, atau kalimat baru.
+- Jangan pakai frasa "bukan A, tapi B" (atau variannya, di bahasa apa pun) — kecuali tagline BUBU.
+- Hindari kalimat template generik (mis. "Inisiatif ini berfokus pada...").
+- Variasikan panjang kalimat/paragraf; kalau ada statistik, tiap angka disertai satu kalimat makna praktisnya.
+- Thesis/inti pesan ada di tiga kalimat pertama; akhiri dengan kalimat paling tajam, bukan rangkuman ulang.
+
+### Delegation
+Delegasikan subtask independen ke subagent dan tetap lanjut kerja selama subagent berjalan. Jangan terima laporan "selesai" dari subagent tanpa ada file/output konkret yang bisa diverifikasi.
