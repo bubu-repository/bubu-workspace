@@ -31,6 +31,7 @@ bubu-presentation/
 ├── assets/
 │   ├── bubu-theme.js     ← THE ENGINE: BRAND tokens + 21 layout functions + logo + texture
 │   ├── embed_fonts.py    ← embeds the brand fonts INTO the .pptx (run after building)
+│   ├── check_brand_compliance.py ← QA gate: verifies colors/fonts match the locked tokens
 │   ├── build_template.js ← worked example that builds the reference deck
 │   ├── bubu-template.pptx← rendered reference deck (21 layouts, fonts embedded)
 │   ├── design-spec.md    ← exact hex / fonts / sizes / spacing
