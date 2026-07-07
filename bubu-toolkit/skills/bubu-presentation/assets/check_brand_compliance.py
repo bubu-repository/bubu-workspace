@@ -13,14 +13,15 @@ import sys, zipfile, re
 from collections import defaultdict
 
 # Mirrors BRAND.color / BRAND.font in bubu-theme.js and design-spec.md, PLUS
-# two explicit dark-mode literal exceptions: 3A3A3A and 5A5A5A (from bubu-theme.js
-# lines 97 and 145, respectively) that were never promoted to named BRAND.color
-# tokens. Keep all three sources in sync by hand if bubu-theme.js or design-spec.md
-# ever change (same pattern as embed_fonts.py's FONT_MAP).
+# three explicit dark-mode literal exceptions that were never promoted to named
+# BRAND.color tokens: 2A2A2A (bubu-theme.js line 107, texCircles), 3A3A3A
+# (line 97, texTicks), and 5A5A5A (line 145, imgBlock). Keep all three sources
+# in sync by hand if bubu-theme.js or design-spec.md ever change (same pattern
+# as embed_fonts.py's FONT_MAP).
 ALLOWED_COLORS = {
     "FF5E00", "F15A24", "F06622", "111111", "000000", "FFFFFF",
     "666666", "434343", "8A8A8A", "B7B7B7", "CCCCCC", "E4E4E4",
-    "F3F3F3", "1C1C1C", "3A3A3A", "5A5A5A",
+    "F3F3F3", "1C1C1C", "2A2A2A", "3A3A3A", "5A5A5A",
 }
 ALLOWED_FONTS = {"Bebas Neue", "Poppins", "Comfortaa"}
 
